@@ -26,7 +26,8 @@ Control it from your phone browser. No app needed.
 - 2× Servo Motors
 - 3× Li-ion Batteries (11.1V)
 - Buck Converter (set to 5V) — for servos
-- Laser module (optional)
+- Laser module
+- Switch (0/1)
 - Jumper wires
 
 ---
@@ -34,18 +35,28 @@ Control it from your phone browser. No app needed.
 ## ⚡ Wiring (Quick Reference)
 
 ```
-Battery (+) ──► L298N [12V pin]
-Battery (-) ──► L298N [GND]  ──► Buck GND ──► ESP32 GND  ← common ground!
+Battery (+) ──► Switch ──► L298N [12V pin] ──► Buck Input Pin [+IN]
+Battery (-) ──► L298N [GND]  ──► Buck [-IN] ──► ESP32 GND  (common ground!)
 
 L298N [5V pin]   ──► ESP32 [VIN]
-Buck [5V output] ──► Servo Red wires
-
-ESP32 GPIO 25 ──► Pan  Servo (signal)
-ESP32 GPIO 32 ──► Tilt Servo (signal)
-
-ESP32 GPIO 16, 17, 32 ──► L298N (Right Motor)
-ESP32 GPIO 18, 19, 23 ──► L298N (Left Motor)
+Buck [+OUT] [5V output] ──► Servo Red wires
+Buck [-OUT] ──► Servo Black wires
 ```
+**ESP32 Pin Map:**
+
+| Function         | GPIO Pin |
+|------------------|:-------:|
+| ENA        | 32      |
+| IN1        | 16      |
+| IN2        | 17      |
+| ENB         | 23      |
+| IN3         | 18      |
+| IN4         | 19      |
+| Pan  Servo      | 25      |
+| Tilt Servo    | 33      |
+
+**Important:**  
+Servos get their power from the BUCK/BEC — NOT the ESP32!
 
 > ⚠️ **Most important:** All GNDs must be connected together!
 
@@ -55,7 +66,7 @@ ESP32 GPIO 18, 19, 23 ──► L298N (Left Motor)
 
 1. Flash the code to ESP32 using Arduino IDE
 2. Power on the robot
-3. On your phone/laptop — connect to WiFi:
+3. On your phone/laptop — connect to WiFi: (NOTE: MAKE SURE TO TURN OFF MOBILE DATA)
    - **Network:** `SSA_RoboLaserCar`
    - **Password:** `12345678`
 4. Open browser → go to **`192.168.4.1`**

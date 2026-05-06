@@ -66,7 +66,8 @@ Servos get their power from the BUCK/BEC — NOT the ESP32!
 
 1. Flash the code to ESP32 using Arduino IDE
 2. Power on the robot
-3. On your phone/laptop — connect to WiFi: (NOTE: MAKE SURE TO TURN OFF MOBILE DATA)
+3. On your phone/laptop — connect to WiFi:
+   > ⚠️ **NOTE:** MAKE SURE TO TURN OFF MOBILE DATA !
    - **Network:** `SSA_RoboLaserCar`
    - **Password:** `12345678`
 4. Open browser → go to **`192.168.4.1`**

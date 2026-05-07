@@ -24,7 +24,7 @@ Control it from your phone browser. No app needed.
 - L298N Motor Driver
 - 2× DC Motors
 - 2× Servo Motors
-- 3× Li-ion Batteries (11.1V)
+- 3× Li-ion Batteries (in series) (11.1V - 12.6V)
 - Buck Converter (set to 5V) — for servos
 - Laser module
 - Switch (0/1)
